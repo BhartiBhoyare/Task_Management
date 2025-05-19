@@ -7,6 +7,7 @@ import { MdAssignmentAdd } from "react-icons/md";
 const Cards = ({ home, setInputTaskCard }) => {
   const data = [
     {
+      id: 1,
       title: "Project",
       desc: "Lorem, ipsum dolor sit amet consectetur Blanditiis, ad.",
       Task: "In Complete",
@@ -14,6 +15,7 @@ const Cards = ({ home, setInputTaskCard }) => {
       status: "Deadline:",
     },
     {
+      id: 2,
       title: "Project",
       desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, ad.",
       Task: "Complete",
@@ -21,6 +23,7 @@ const Cards = ({ home, setInputTaskCard }) => {
       status: "Created On:",
     },
     {
+      id: 3,
       title: "Project",
       desc: "Lorem, ipsum dolor sit amet consectetur",
       Task: "In Complete",
@@ -28,6 +31,7 @@ const Cards = ({ home, setInputTaskCard }) => {
       status: "Created On:",
     },
     {
+      id: 4,
       title: "Project",
       desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, ad.",
       Task: "Complete",
@@ -35,6 +39,7 @@ const Cards = ({ home, setInputTaskCard }) => {
       status: "Deadline:",
     },
     {
+      id: 5,
       title: "Project",
       desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, ad.",
       Task: "Complete",
@@ -42,6 +47,7 @@ const Cards = ({ home, setInputTaskCard }) => {
       status: "Deadline:",
     },
     {
+      id: 6,
       title: "Project",
       desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, ad.",
       Task: "Complete",
@@ -49,6 +55,7 @@ const Cards = ({ home, setInputTaskCard }) => {
       status: "Deadline:",
     },
     {
+      id: 7,
       title: "Project",
       desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, ad.",
       Task: "Complete",
@@ -60,8 +67,11 @@ const Cards = ({ home, setInputTaskCard }) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 overflow-y-auto scrollbar-thin scrollbar-track-neutral-700 scrollbar-thumb-neutral-900 h-[70vh]">
-      {data.map(({ title, desc, status, Date, Task }) => (
-        <div className="bg-neutral-700 rounded-sm p-4 border-1 border-neutral-600">
+      {data.map(({ id, title, desc, status, Date, Task }) => (
+        <div
+          key={id}
+          className="bg-neutral-700 rounded-sm p-4 border-1 border-neutral-600"
+        >
           <div
             className={`${
               status === "Created On:" ? " bg-blue-500" : "bg-red-500"
@@ -95,7 +105,10 @@ const Cards = ({ home, setInputTaskCard }) => {
         </div>
       ))}
       {home === true && (
-        <button onClick={() => setInputTaskCard("fixed")} className="bg-neutral-700 text-gray-300 flex gap-2 p-4 justify-center text-xl hover:transition hover:scale-105 items-center font-semibold rounded-sm cursor-pointer border-1 border-neutral-600">
+        <button
+          onClick={() => setInputTaskCard("fixed")}
+          className="bg-neutral-700 text-gray-300 flex gap-2 p-4 justify-center text-xl hover:transition hover:scale-105 items-center font-semibold rounded-sm cursor-pointer border-1 border-neutral-600"
+        >
           <MdAssignmentAdd className="size-8" />
           Add Task
         </button>

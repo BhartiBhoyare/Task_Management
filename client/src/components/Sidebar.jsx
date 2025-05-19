@@ -1,28 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { BiTaskX } from "react-icons/bi";
 import { FaHeart, FaTasks, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authActions } from "../store/auth";
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const logout = () => {
+    dispatch(authActions.logout());
+    localStorage.clear("id");
+    localStorage.clear("token");
+    navigate("/sign-in");
+  };
+
+  useEffect(() => {
+    const fetch = async () => {
+      
+    }
+  }, [third])
+  
+
   const data = [
-    { title: "All Tasks", 
-      icon: <FaTasks />, 
-      link: "/" 
-    },
-    { title: "Important Tasks", 
-      icon: <FaHeart />, 
-      link: "/importantTask" 
-    },
+    { title: "All Tasks", icon: <FaTasks />, link: "/" },
+    { title: "Important Tasks", icon: <FaHeart />, link: "/importantTask" },
     {
       title: "Completed Tasks",
       icon: <MdOutlineTaskAlt />,
       link: "/completedTask",
     },
-    { title: "Incompleted Tasks", 
-      icon: <BiTaskX />, 
-      link: "/incompltedTask" 
-    },
+    { title: "Incompleted Tasks", icon: <BiTaskX />, link: "/incompltedTask" },
   ];
 
   return (
@@ -62,7 +71,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
         {/* Logout */}
         <div className="mt-6">
-          <button className="bg-gray-600 cursor-pointer py-1 rounded-lg font-bold text-white hover:bg-gray-700 w-full">
+          <button
+            className="bg-gray-600 cursor-pointer py-1 rounded-lg font-bold text-white hover:bg-gray-700 w-full"
+            onClick={logout}
+          >
             Log Out
           </button>
         </div>

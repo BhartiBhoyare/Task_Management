@@ -38,7 +38,7 @@ router.post("/sign-up", async (req, res) => {
 });
 
 //Sign-in APIs
-router.get("/sign-in", async (req, res) => {
+router.post("/sign-in", async (req, res) => {
   const { username, password } = req.body;
   const existingUser = await User.findOne({ username: username });
   if (!existingUser) {
