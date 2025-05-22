@@ -133,7 +133,7 @@ const AddTaskData = ({
           <div className="font-bold">
             Description
             <textarea
-              className="border-2 border-neutral-600 rounded-lg font-medium mt-2 focus:outline-none w-full p-2"
+              className="border-2 border-neutral-600 rounded-lg font-medium mt-2 focus:outline-none overflow-y-auto scrollbar-thin scrollbar-track-neutral-700 scrollbar-thumb-neutral-900 w-full p-2"
               placeholder="Write the Description"
               name="desc"
               value={Data.desc}

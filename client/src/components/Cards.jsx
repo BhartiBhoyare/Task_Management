@@ -24,7 +24,6 @@ const Cards = ({ home, setInputTaskCard, setEditTask, data: initialData }) => {
         {},
         { headers }
       );
-      alert(response.data.message);
       setTasks((prevTasks) =>
         prevTasks.map((task) =>
           task._id === id ? { ...task, complete: !task.complete } : task
@@ -42,7 +41,6 @@ const Cards = ({ home, setInputTaskCard, setEditTask, data: initialData }) => {
         {},
         { headers }
       );
-      alert(response.data.message);
       setTasks((prevTasks) =>
         prevTasks.map((task) =>
           task._id === id ? { ...task, important: !task.important } : task
@@ -83,7 +81,7 @@ const Cards = ({ home, setInputTaskCard, setEditTask, data: initialData }) => {
   };
 
   return (
-    <div className=" overflow-y-auto scrollbar-thin scrollbar-track-neutral-700 scrollbar-thumb-neutral-900 h-[70vh]">
+    <div className="overflow-y-auto scrollbar-thin scrollbar-track-neutral-700 scrollbar-thumb-neutral-900 h-[70vh]">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
         {tasks?.map(
           ({ _id, title, desc, complete, important, deadline, createdOn }) => (
