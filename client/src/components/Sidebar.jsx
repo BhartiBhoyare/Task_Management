@@ -52,7 +52,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     <div
       className={`${
         isOpen ? "translate-x-0" : "-translate-x-full"
-      } fixed top-0 left-0 z-50 h-full min-w-[20vw] bg-neutral-800 p-4 transition-transform duration-300 md:relative md:translate-x-0 md:block md:h-auto md:rounded-lg md:border md:border-neutral-700`}
+      } fixed top-0 left-0 z-50 h-full md:min-w-[25vw] lg:min-w-[20vw] bg-neutral-800 p-4 transition-transform duration-300 md:relative md:translate-x-0 md:block md:h-auto md:rounded-lg md:border md:border-neutral-700`}
     >
       {/* Mobile Close Button */}
       <div className="flex justify-between items-center md:hidden mb-4">

@@ -26,7 +26,7 @@ const App = () => {
   return (
     <div className="bg-neutral-900 text-white">
       {/* Main Layout */}
-      <div className="flex overflow-hidden justify-center space-x-6 h-screen p-4 relative">
+      <div className="flex overflow-hidden justify-center space-x-6 h-screen p-2 relative">
         <Routes>
           <Route exact path="/" element={<Home />}>
             <Route index element={<All />} />

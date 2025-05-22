@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex items-center text-2xl lg:text-3xl font-extrabold">
+      <div className="flex items-center lg:mt-2 text-2xl lg:text-3xl font-extrabold">
         <button
           className="md:hidden mr-4"
           onClick={() => setIsSidebarOpen(true)}
@@ -19,7 +19,7 @@ const Home = () => {
       </div>
       <div className="flex gap-4 mt-4">
         <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
-        <div className="bg-neutral-800 border-1 border-neutral-700 rounded-lg p-4">
+        <div className="bg-neutral-800 min-w-[70vw] border-1 border-neutral-700 rounded-lg p-4">
           <Outlet />
         </div>
       </div>
