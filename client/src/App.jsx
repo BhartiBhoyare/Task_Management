@@ -24,9 +24,9 @@ const App = () => {
   }, []);
 
   return (
-    <div className="py-2 px-4 bg-neutral-900 h-screen text-white">
+    <div className="bg-neutral-900 text-white">
       {/* Main Layout */}
-      <div className="flex overflow-hidden space-x-6 mt-4 relative">
+      <div className="flex overflow-hidden justify-center space-x-6 h-screen p-4 relative">
         <Routes>
           <Route exact path="/" element={<Home />}>
             <Route index element={<All />} />

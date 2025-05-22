@@ -6,13 +6,18 @@ const { authenticateToken } = require("./auth");
 //Create Task
 router.post("/create-task", authenticateToken, async (req, res) => {
   try {
-    const { title, desc } = req.body;
+    const { title, desc, deadline, createdOn } = req.body;
     const { id } = req.headers;
-    const newTask = new Task({ title: title, desc: desc });
+    const newTask = new Task({
+      title: title,
+      desc: desc,
+      deadline: deadline,
+      createdOn: createdOn,
+    });
     const saveTask = await newTask.save();
     const taskId = saveTask._id;
     await User.findByIdAndUpdate(id, { $push: { tasks: taskId._id } });
-    res.status(200).json({ message: "Task Created" });
+    res.status(200).json({ message: "Task Added Successfully" });
   } catch (error) {
     console.log(error);
     res.status(400).json({ message: "Internal Server Error" });
@@ -52,8 +57,13 @@ router.delete("/delete-task/:id", authenticateToken, async (req, res) => {
 router.put("/update-task/:id", authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, desc } = req.body;
-    await Task.findByIdAndUpdate(id, { title: title, desc: desc });
+    const { title, desc, createdOn, deadline } = req.body;
+    await Task.findByIdAndUpdate(id, {
+      title: title,
+      desc: desc,
+      createdOn: createdOn,
+      deadline: deadline,
+    });
     res.status(200).json({ message: "Task Updated Successfully" });
   } catch (error) {
     console.log(error);
@@ -99,6 +109,7 @@ router.get("/get-imp-tasks", authenticateToken, async (req, res) => {
       options: { sort: { createdAt: -1 } },
     });
     const ImpTaskData = Data.tasks;
+    console.log(ImpTaskData);
     res.status(200).json({ data: ImpTaskData });
   } catch (error) {
     console.log(error);
