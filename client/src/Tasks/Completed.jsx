@@ -14,7 +14,7 @@ const Completed = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:8000/api/v2/get-comp-tasks",
+        "https://task-managementbackend.vercel.app/api/v2/get-comp-tasks",
         {
           headers,
         }

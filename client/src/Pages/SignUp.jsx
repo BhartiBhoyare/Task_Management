@@ -24,7 +24,7 @@ const SignUp = () => {
         alert("All fields are required");
       } else {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/sign-up",
+          "https://task-managementbackend.vercel.app/api/v1/sign-up",
           Data
         );
         setData({ username: "", email: "", password: "" });

@@ -18,7 +18,7 @@ const AddTaskData = ({
       alert("Title and Description are Required");
     } else {
       const response = await axios.put(
-        `http://localhost:8000/api/v2/update-task/${EditTask.id}`,
+        `https://task-managementbackend.vercel.app/api/v2/update-task/${EditTask.id}`,
         Data,
         {
           headers,
@@ -73,7 +73,7 @@ const AddTaskData = ({
       alert("Title and Description are Required");
     } else {
       const response = await axios.post(
-        "http://localhost:8000/api/v2/create-task",
+        "https://task-managementbackend.vercel.app/api/v2/create-task",
         Data,
         {
           headers,
