@@ -12,7 +12,6 @@ const All = () => {
     id: "",
     title: "",
     desc: "",
-    createdOn: "",
     deadline: "",
   });
 
@@ -24,7 +23,7 @@ const All = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "https://task-managementbackend.vercel.app/api/v2/get-all-tasks",
+        "http://localhost:8000/api/v2/get-all-tasks",
         {
           headers,
         }

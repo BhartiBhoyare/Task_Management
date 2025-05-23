@@ -14,8 +14,8 @@ const AddTaskData = ({
   };
 
   const UpdateTask = async () => {
-    if (Data.title === "" || Data.desc === "" || Data.createdOn === "") {
-      alert("Title, Created On and Description are Required");
+    if (Data.title === "" || Data.desc === "") {
+      alert("Title and Description are Required");
     } else {
       const response = await axios.put(
         `http://localhost:8000/api/v2/update-task/${EditTask.id}`,
@@ -29,11 +29,10 @@ const AddTaskData = ({
         id: "",
         title: "",
         desc: "",
-        createdOn: "",
         deadline: "",
       });
 
-      setData({ title: "", desc: "", createdOn: "", deadline: "" });
+      setData({ title: "", desc: "", deadline: "" });
       alert(response.data.message);
       setInputTaskCard("hidden");
       setchange((change) => !change);
@@ -43,7 +42,6 @@ const AddTaskData = ({
   const [Data, setData] = useState({
     title: "",
     desc: "",
-    createdOn: "",
     deadline: "",
   });
 
@@ -60,7 +58,6 @@ const AddTaskData = ({
       setData({
         title: EditTask.title || "",
         desc: EditTask.desc || "",
-        createdOn: formatDate(EditTask.createdOn),
         deadline: formatDate(EditTask.deadline),
       });
     }
@@ -72,8 +69,8 @@ const AddTaskData = ({
   };
 
   const addTask = async () => {
-    if (Data.title === "" || Data.desc === "" || Data.createdOn === "") {
-      alert("Title, Created On and Description are Required");
+    if (Data.title === "" || Data.desc === "") {
+      alert("Title and Description are Required");
     } else {
       const response = await axios.post(
         "http://localhost:8000/api/v2/create-task",
@@ -83,7 +80,7 @@ const AddTaskData = ({
         }
       );
       alert(response.data.message);
-      setData({ title: "", desc: "", createdOn: "", deadline: "" });
+      setData({ title: "", desc: "", deadline: "" });
       setInputTaskCard("hidden");
       setchange((change) => !change);
     }
@@ -105,17 +102,6 @@ const AddTaskData = ({
               placeholder="Title"
               name="title"
               value={Data.title}
-              onChange={change}
-            />
-          </div>
-          <div className="font-bold">
-            Created On
-            <input
-              className="border-2 text-neutral-400 border-neutral-600 rounded-lg font-medium mt-2 focus:outline-none w-full p-2"
-              placeholder="dd-mm-yyyy"
-              type="date"
-              name="createdOn"
-              value={Data.createdOn}
               onChange={change}
             />
           </div>
@@ -164,14 +150,12 @@ const AddTaskData = ({
                 setData({
                   title: "",
                   desc: "",
-                  createdOn: "",
                   deadline: "",
                 });
                 setEditTask({
                   id: "",
                   title: "",
                   desc: "",
-                  createdOn: "",
                   deadline: "",
                 });
               }}

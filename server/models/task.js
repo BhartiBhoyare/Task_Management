@@ -6,10 +6,10 @@ const taskSchema = new mongoose.Schema(
     },
     createdOn: {
       type: Date,
+      default: new Date(),
     },
     title: {
       type: String,
-      unique: true,
     },
     desc: {
       type: String,

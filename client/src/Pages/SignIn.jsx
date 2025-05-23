@@ -45,7 +45,7 @@ const SignIn = () => {
         <div className="flex items-center border-2 border-neutral-400 py-1 rounded-sm my-2">
           <TiUser className="text-neutral-400 size-6 pl-1" />
           <input
-            className="focus:outline-none px-1"
+            className="focus:outline-none w-full px-1"
             type="username"
             placeholder="Username"
             name="username"
@@ -56,7 +56,7 @@ const SignIn = () => {
         <div className="flex items-center border-2 border-neutral-400 py-1 rounded-sm my-2 ">
           <IoIosLock className="text-neutral-400 size-6 pl-1" />
           <input
-            className="focus:outline-none px-1"
+            className="focus:outline-none w-full px-1"
             type="password"
             placeholder="Password"
             name="password"
